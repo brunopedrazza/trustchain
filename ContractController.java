@@ -68,21 +68,20 @@ public final class TrustChain implements ContractInterface {
      * @return the created asset
      */
     @Transaction(intent = Transaction.TYPE.SUBMIT)
-    public Asset CreateContract(final Context ctx, final String assetID, final String color, final int size,
-        final String owner, final int appraisedValue) {
+    public Properties CreateContract(final Context ctx, final String contractID, final String owner, final String hired,final String ownerCompany, final String hiredCompany, boolean jobDone, boolean jobApproved, final int value, final int conclusionDate) {
         ChaincodeStub stub = ctx.getStub();
 
-        if (AssetExists(ctx, assetID)) {
-            String errorMessage = String.format("Asset %s already exists", assetID);
+        if (AssetExists(ctx, contractID)) {
+            String errorMessage = String.format("%s already exists", contractID);
             System.out.println(errorMessage);
             throw new ChaincodeException(errorMessage, AssetTransferErrors.ASSET_ALREADY_EXISTS.toString());
         }
 
-        Asset asset = new Asset(assetID, color, size, owner, appraisedValue);
-        String assetJSON = genson.serialize(asset);
-        stub.putStringState(assetID, assetJSON);
+        Properties contract = new Properties(contractID, owner, hired, ownerCompany, hiredCompany, jobDone, jobApproved, value, conclusionDate);
+        String contractJSON = genson.serialize(contract);
+        stub.putStringState(contractID, contractJSON);
 
-        return asset;
+        return contract;
     }
 
     /**
@@ -93,18 +92,18 @@ public final class TrustChain implements ContractInterface {
      * @return the asset found on the ledger if there was one
      */
     @Transaction(intent = Transaction.TYPE.EVALUATE)
-    public Asset ReadAsset(final Context ctx, final String assetID) {
+    public Properties ReadContract(final Context ctx, final String contractID) {
         ChaincodeStub stub = ctx.getStub();
-        String assetJSON = stub.getStringState(assetID);
+        String contractJSON = stub.getStringState(contractID);
 
-        if (assetJSON == null || assetJSON.isEmpty()) {
-            String errorMessage = String.format("Asset %s does not exist", assetID);
+        if (contractJSON == null || contractJSON.isEmpty()) {
+            String errorMessage = String.format("%s does not exist", contractID);
             System.out.println(errorMessage);
             throw new ChaincodeException(errorMessage, AssetTransferErrors.ASSET_NOT_FOUND.toString());
         }
 
-        Asset asset = genson.deserialize(assetJSON, Asset.class);
-        return asset;
+        Properties contract = genson.deserialize(contractJSON, Properties.class);
+        return contract;
     }
 
     /**
@@ -119,21 +118,20 @@ public final class TrustChain implements ContractInterface {
      * @return the transferred asset
      */
     @Transaction(intent = Transaction.TYPE.SUBMIT)
-    public Asset UpdateAsset(final Context ctx, final String assetID, final String color, final int size,
-        final String owner, final int appraisedValue) {
+    public Properties UpdateAsset(final Context ctx, final String contractID, final String owner, final String hired,final String ownerCompany, final String hiredCompany, boolean jobDone, boolean jobApproved, final int value, final int conclusionDate) {
         ChaincodeStub stub = ctx.getStub();
 
-        if (!AssetExists(ctx, assetID)) {
-            String errorMessage = String.format("Asset %s does not exist", assetID);
+        if (!AssetExists(ctx, contractID)) {
+            String errorMessage = String.format("%s does not exist", contractID);
             System.out.println(errorMessage);
             throw new ChaincodeException(errorMessage, AssetTransferErrors.ASSET_NOT_FOUND.toString());
         }
 
-        Asset newAsset = new Asset(assetID, color, size, owner, appraisedValue);
-        String newAssetJSON = genson.serialize(newAsset);
-        stub.putStringState(assetID, newAssetJSON);
+        Properties newcontract = new Properties(contractID, owner, hired, ownerCompany, hiredCompany, jobDone, jobApproved, value, conclusionDate);
+        String newcontractJSON = genson.serialize(contract);
+        stub.putStringState(contractID, newcontractJSON);
 
-        return newAsset;
+        return newcontract;
     }
 
     /**
@@ -143,16 +141,16 @@ public final class TrustChain implements ContractInterface {
      * @param assetID the ID of the asset being deleted
      */
     @Transaction(intent = Transaction.TYPE.SUBMIT)
-    public void DeleteAsset(final Context ctx, final String assetID) {
+    public void DeleteAsset(final Context ctx, final String contractID) {
         ChaincodeStub stub = ctx.getStub();
 
-        if (!AssetExists(ctx, assetID)) {
-            String errorMessage = String.format("Asset %s does not exist", assetID);
+        if (!AssetExists(ctx, contractID)) {
+            String errorMessage = String.format("%s does not exist", contractID;
             System.out.println(errorMessage);
             throw new ChaincodeException(errorMessage, AssetTransferErrors.ASSET_NOT_FOUND.toString());
         }
 
-        stub.delState(assetID);
+        stub.delState(contractID);
     }
 
     /**
@@ -163,39 +161,11 @@ public final class TrustChain implements ContractInterface {
      * @return boolean indicating the existence of the asset
      */
     @Transaction(intent = Transaction.TYPE.EVALUATE)
-    public boolean AssetExists(final Context ctx, final String assetID) {
+    public boolean AssetExists(final Context ctx, final String contractID) {
         ChaincodeStub stub = ctx.getStub();
-        String assetJSON = stub.getStringState(assetID);
+        String contractJSON = stub.getStringState(contractID);
 
-        return (assetJSON != null && !assetJSON.isEmpty());
-    }
-
-    /**
-     * Changes the owner of a asset on the ledger.
-     *
-     * @param ctx the transaction context
-     * @param assetID the ID of the asset being transferred
-     * @param newOwner the new owner
-     * @return the updated asset
-     */
-    @Transaction(intent = Transaction.TYPE.SUBMIT)
-    public Asset TransferAsset(final Context ctx, final String assetID, final String newOwner) {
-        ChaincodeStub stub = ctx.getStub();
-        String assetJSON = stub.getStringState(assetID);
-
-        if (assetJSON == null || assetJSON.isEmpty()) {
-            String errorMessage = String.format("Asset %s does not exist", assetID);
-            System.out.println(errorMessage);
-            throw new ChaincodeException(errorMessage, AssetTransferErrors.ASSET_NOT_FOUND.toString());
-        }
-
-        Asset asset = genson.deserialize(assetJSON, Asset.class);
-
-        Asset newAsset = new Asset(asset.getAssetID(), asset.getColor(), asset.getSize(), newOwner, asset.getAppraisedValue());
-        String newAssetJSON = genson.serialize(newAsset);
-        stub.putStringState(assetID, newAssetJSON);
-
-        return newAsset;
+        return (contractJSON != null && !contractJSON.isEmpty());
     }
 
     /**
@@ -208,7 +178,7 @@ public final class TrustChain implements ContractInterface {
     public String GetAllAssets(final Context ctx) {
         ChaincodeStub stub = ctx.getStub();
 
-        List<Asset> queryResults = new ArrayList<Asset>();
+        List<Properties> queryResults = new ArrayList<Properties>();
 
         // To retrieve all assets from the ledger use getStateByRange with empty startKey & endKey.
         // Giving empty startKey & endKey is interpreted as all the keys from beginning to end.
@@ -217,9 +187,9 @@ public final class TrustChain implements ContractInterface {
         QueryResultsIterator<KeyValue> results = stub.getStateByRange("", "");
 
         for (KeyValue result: results) {
-            Asset asset = genson.deserialize(result.getStringValue(), Asset.class);
-            queryResults.add(asset);
-            System.out.println(asset.toString());
+            Properties c = genson.deserialize(result.getStringValue(), Properties.class);
+            queryResults.add(c);
+            System.out.println(c.toString());
         }
 
         final String response = genson.serialize(queryResults);

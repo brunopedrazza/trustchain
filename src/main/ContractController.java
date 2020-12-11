@@ -26,10 +26,10 @@ import com.owlike.genson.Genson;
                 version = "0.0.1-SNAPSHOT",
                 license = @License(
                         name = "Apache 2.0 License",
-                        url = "http://www.apache.org/licenses/LICENSE-2.0.html"),
+                        url = "http://www.apache.org/licenses/LICENSE-2.0.html")
                 ))
 @Default
-public final class TrustChain implements ContractInterface {
+public final class TrustChain2 implements ContractInterface {
 
     private final Genson genson = new Genson();
 

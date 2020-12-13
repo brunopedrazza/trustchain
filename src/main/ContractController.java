@@ -145,7 +145,7 @@ public final class TrustChain2 implements ContractInterface {
         ChaincodeStub stub = ctx.getStub();
 
         if (!AssetExists(ctx, contractID)) {
-            String errorMessage = String.format("%s does not exist", contractID;
+            String errorMessage = String.format("%s does not exist", contractID);
             System.out.println(errorMessage);
             throw new ChaincodeException(errorMessage, AssetTransferErrors.ASSET_NOT_FOUND.toString());
         }

@@ -5,10 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "fabric:java",
+            "type": "fabric:node",
             "request": "launch",
             "name": "Debug Smart Contract",
-            "mainClass": "org.hyperledger.fabric.contract.ContractRouter"
+            "preLaunchTask": "tsc: build - tsconfig.json",
+            "outFiles": [
+                "${workspaceFolder}/dist/**/*.js"
+            ]
         }
     ]
 }

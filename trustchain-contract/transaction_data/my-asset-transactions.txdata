@@ -1,0 +1,11 @@
+[
+    
+    {
+        "transactionName": "contractExists",
+        "transactionLabel": "A test contractExists transaction",
+        "arguments": [
+            "001"
+        ],
+        "transientData": {}
+    }
+]

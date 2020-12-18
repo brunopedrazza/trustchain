@@ -43,7 +43,6 @@ namespace Trustchain.Front
                 .AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>
                 >();
             services.AddDatabaseDeveloperPageExceptionFilter();
-            services.AddSingleton<WeatherForecastService>();
             services.AddSingleton<AppState>();
         }
 

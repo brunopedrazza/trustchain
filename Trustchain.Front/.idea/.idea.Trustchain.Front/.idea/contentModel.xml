@@ -32,8 +32,6 @@
           <e p="00000000000000_CreateIdentitySchema.Designer.cs" t="Include" />
           <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
         </e>
-        <e p="WeatherForecast.cs" t="Include" />
-        <e p="WeatherForecastService.cs" t="Include" />
       </e>
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
@@ -46,12 +44,10 @@
       <e p="packages" t="ExcludeRecursive" />
       <e p="Pages" t="Include">
         <e p="_Host.cshtml" t="Include" />
-        <e p="Counter.razor" t="Include" />
         <e p="EditContract.razor" t="Include" />
         <e p="EditContract.razor.cs" t="Include" />
         <e p="Error.cshtml" t="Include" />
         <e p="Error.cshtml.cs" t="Include" />
-        <e p="FetchData.razor" t="Include" />
         <e p="Index.razor" t="Include" />
         <e p="Index.razor.cs" t="Include" />
         <e p="NewContract.razor" t="Include" />
@@ -70,7 +66,6 @@
         <e p="MainLayout.razor.css" t="Include" />
         <e p="NavMenu.razor" t="Include" />
         <e p="NavMenu.razor.css" t="Include" />
-        <e p="SurveyPrompt.razor" t="Include" />
       </e>
       <e p="Startup.cs" t="Include" />
       <e p="Trustchain.Front.csproj" t="IncludeRecursive" />

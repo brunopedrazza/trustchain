@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trustchain.Front", "Trustchain.Front.csproj", "{DB1CA609-8B72-47BD-AD40-FA8568AE850A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB1CA609-8B72-47BD-AD40-FA8568AE850A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB1CA609-8B72-47BD-AD40-FA8568AE850A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB1CA609-8B72-47BD-AD40-FA8568AE850A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB1CA609-8B72-47BD-AD40-FA8568AE850A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

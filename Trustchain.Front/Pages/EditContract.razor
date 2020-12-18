@@ -1,4 +1,43 @@
 @page "/editcontract/{id}"
 
-<h3>EditContract</h3>
-@Id
+<h3>Edit Contract</h3>
+<form>
+  <div class="form-group">
+    <label>Id</label>
+    <input type="text" value="@Contract.Id" disabled class="form-control"/>
+  </div>
+  <div class="form-group">
+    <label>Owner Representative</label>
+    <input type="text" value="@Contract.Owner" disabled class="form-control"/>
+  </div>
+  <div class="form-group">
+    <label>Orner Company</label>
+    <input type="text" value="@Contract.OwnerCompany" disabled class="form-control"/>
+  </div>
+  <div class="form-group">
+    <label>Hired Representative</label>
+    <input type="text" value="@Contract.Hired" disabled class="form-control"/>
+  </div>
+  <div class="form-group">
+    <label>Hired Company</label>
+    <input type="text" value="@Contract.HiredCompany" disabled class="form-control"/>
+  </div>
+  <div class="form-group">
+    <label>Value</label>
+    <input type="text" value="@Contract.Value" disabled class="form-control"/>
+  </div>
+  <div class="form-group">
+    <label>Conclusion Date</label>
+    <input type="text" value="@Contract.ConclusionDate" disabled class="form-control"/>
+  </div>
+  <div class="form-group">
+    <label>Job Approved</label>
+    <input type="checkbox" bind-value="@Contract.JobApproved"/>
+  </div>
+  <div class="form-group">
+    <label>Job Done</label>
+    <input type="checkbox" bind-value="@Contract.JobDone"/>
+  </div>
+</form>
+<button class="btn btn-primary" @onclick="SubmitEditContract">Edit</button>
+<button class="btn btn-danger" @onclick="DeleteContract">Delete</button>

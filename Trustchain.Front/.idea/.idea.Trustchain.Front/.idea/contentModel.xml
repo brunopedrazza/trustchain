@@ -21,6 +21,9 @@
         </e>
       </e>
       <e p="bin" t="ExcludeRecursive" />
+      <e p="Clients" t="Include">
+        <e p="ContractClient.cs" t="Include" />
+      </e>
       <e p="Data" t="Include">
         <e p="ApplicationDbContext.cs" t="Include" />
         <e p="Contract.cs" t="Include" />

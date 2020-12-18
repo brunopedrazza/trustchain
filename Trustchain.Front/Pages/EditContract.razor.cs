@@ -13,7 +13,10 @@ namespace Trustchain.Front.Pages
         [Inject] private NavigationManager Nav { get; set; }
         
         [Parameter] public string Id { get; set; }
-        
+
+        private bool JobDone { get; set; }
+        private bool JobApproved { get; set; }
+
         private Contract Contract { get; set; }
         
 

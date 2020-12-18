@@ -32,11 +32,11 @@
   </div>
   <div class="form-group">
     <label>Job Done</label>
-    <input type="checkbox" checked="@Contract.JobDone" bind-value="@Contract.JobDone"/>
+    <input type="checkbox" checked="@Contract.JobDone" @bind-value="@Contract.JobDone"/>
   </div>
   <div class="form-group">
     <label>Job Approved</label>
-    <input type="checkbox" checked="@Contract.JobApproved" bind-value="@Contract.JobApproved"/>
+    <input type="checkbox" checked="@Contract.JobApproved" @bind-value="@Contract.JobApproved"/>
   </div>
 </form>
 <button class="btn btn-primary" @onclick="SubmitEditContract">Edit</button>

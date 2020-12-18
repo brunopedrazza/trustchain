@@ -23,6 +23,7 @@
       <e p="bin" t="ExcludeRecursive" />
       <e p="Data" t="Include">
         <e p="ApplicationDbContext.cs" t="Include" />
+        <e p="Contract.cs" t="Include" />
         <e p="Migrations" t="Include">
           <e p="00000000000000_CreateIdentitySchema.cs" t="Include" />
           <e p="00000000000000_CreateIdentitySchema.Designer.cs" t="Include" />
@@ -43,10 +44,15 @@
       <e p="Pages" t="Include">
         <e p="_Host.cshtml" t="Include" />
         <e p="Counter.razor" t="Include" />
+        <e p="EditContract.razor" t="Include" />
+        <e p="EditContract.razor.cs" t="Include" />
         <e p="Error.cshtml" t="Include" />
         <e p="Error.cshtml.cs" t="Include" />
         <e p="FetchData.razor" t="Include" />
         <e p="Index.razor" t="Include" />
+        <e p="Index.razor.cs" t="Include" />
+        <e p="NewContract.razor" t="Include" />
+        <e p="NewContract.razor.cs" t="Include" />
       </e>
       <e p="Program.cs" t="Include" />
       <e p="Properties" t="Include">

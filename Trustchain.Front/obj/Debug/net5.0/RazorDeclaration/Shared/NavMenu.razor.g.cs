@@ -90,7 +90,7 @@ using Trustchain.Front.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 28 "/Users/Bruno/Code/trustchain/Trustchain.Front/Shared/NavMenu.razor"
+#line 23 "/Users/Bruno/Code/trustchain/Trustchain.Front/Shared/NavMenu.razor"
        
     private bool collapseNavMenu = true;
 

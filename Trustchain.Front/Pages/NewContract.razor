@@ -1,0 +1,56 @@
+@page "/newcontract"
+
+<h3>New Contract</h3>
+
+<EditForm EditContext="@EditContext" OnValidSubmit="AddContract">
+    <DataAnnotationsValidator />
+      <div class="form-group">
+        <label>Id</label>
+        <InputText @bind-Value="@Contract.Id" class="form-control" />
+        <div class="validation-message">
+          <ValidationMessage For="@(() => Contract.Id)"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Owner</label>
+        <InputText @bind-Value="@Contract.Owner" class="form-control"/>
+        <ValidationMessage For="@(() => Contract.Owner)"/>
+      </div>
+    <div class="form-group">
+      <label>Orner Company</label>
+      <InputText @bind-Value="@Contract.OwnerCompany" class="form-control" />
+      <ValidationMessage For="@(() => Contract.OwnerCompany)"/>
+    </div>
+    <div class="form-group">
+      <label>Hired</label>
+      <InputText @bind-Value="@Contract.Hired" class="form-control" />
+      <ValidationMessage For="@(() => Contract.Hired)"/>
+    </div>
+    <div class="form-group">
+      <label>Hired Company</label>
+      <InputText @bind-Value="@Contract.HiredCompany" class="form-control" />
+      <ValidationMessage For="@(() => Contract.HiredCompany)"/>
+    </div>
+    <div class="form-group">
+      <label>Value</label>
+      <InputText @bind-Value="@Contract.Value" class="form-control" />
+      <ValidationMessage For="@(() => Contract.Value)"/>
+    </div>
+    <div class="form-group">
+      <label>Conclusion Date</label>
+      <InputDate @bind-Value="@ConclusionDateInput" class="form-control" />
+      <ValidationMessage For="@(() => Contract.ConclusionDate)"/>
+    </div>
+    <div class="form-group">
+      <label>Job Approved</label>
+      <InputCheckbox @bind-Value="@Contract.JobApproved"/>
+      <ValidationMessage For="@(() => Contract.JobApproved)"/>
+    </div>
+    <div class="form-group">
+      <label>Job Done</label>
+      <InputCheckbox @bind-Value="@Contract.JobDone" />
+      <ValidationMessage For="@(() => Contract.JobDone)"/>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</EditForm>

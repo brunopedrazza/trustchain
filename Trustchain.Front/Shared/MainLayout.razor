@@ -8,11 +8,17 @@
     <div class="main">
         <div class="top-row px-4 auth">
             <LoginDisplay/>
-            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
         </div>
 
         <div class="content px-4">
-            @Body
+            <AuthorizeView>
+                <Authorized>
+                    @Body
+                </Authorized>
+                <NotAuthorized>
+                    <h2>You must login too see this content.</h2>
+                </NotAuthorized>
+            </AuthorizeView>
         </div>
     </div>
 </div>

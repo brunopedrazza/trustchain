@@ -1,7 +1,48 @@
 ﻿@page "/"
 
-<h1>Hello, world!</h1>
+<h1>Contracts</h1>
 
-Welcome to your new app.
-
-<SurveyPrompt Title="How is Blazor working for you?"/>
+@if (Contracts is null)
+{
+    <p>
+        <em>Loading...</em>
+    </p>
+}
+else
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Owner</th>
+            <th>Owner Company</th>
+            <th>Hired</th>
+            <th>Hired Company</th>
+            <th>Value</th>
+            <th>Conclusion Date</th>
+            <th>Job Approved</th>
+            <th>Job Done</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+            <Virtualize Context="contract" Items="@Contracts">
+                <tr>
+                    <td>@contract.Id</td>
+                    <td>@contract.Owner</td>
+                    <td>@contract.OwnerCompany</td>
+                    <td>@contract.Hired</td>
+                    <td>@contract.HiredCompany</td>
+                    <td>@contract.Value</td>
+                    <td>@contract.ConclusionDate</td>
+                    <td>@contract.JobApproved</td>
+                    <td>@contract.JobDone</td>
+                    <button class="btn btn-primary"
+                            @onclick="@(() => EditContract(contract.Id))">
+                        Edit
+                    </button>
+                </tr>
+            </Virtualize>
+        </tbody>
+    </table>
+}

@@ -61,6 +61,9 @@
       <e p="Properties" t="Include">
         <e p="launchSettings.json" t="Include" />
       </e>
+      <e p="Services" t="Include">
+        <e p="AppState.cs" t="Include" />
+      </e>
       <e p="Shared" t="Include">
         <e p="LoginDisplay.razor" t="Include" />
         <e p="MainLayout.razor" t="Include" />

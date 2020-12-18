@@ -20,8 +20,8 @@ else
             <th>Hired Company</th>
             <th>Value</th>
             <th>Conclusion Date</th>
-            <th>Job Approved</th>
             <th>Job Done</th>
+            <th>Job Approved</th>
             <th></th>
         </tr>
         </thead>
@@ -35,8 +35,8 @@ else
                     <td>@contract.HiredCompany</td>
                     <td>@contract.Value</td>
                     <td>@contract.ConclusionDate</td>
-                    <td>@contract.JobApproved</td>
-                    <td>@contract.JobDone</td>
+                    <td><input type="checkbox" checked="@contract.JobDone" disabled /></td>
+                    <td><input type="checkbox" checked="@contract.JobApproved" disabled /></td>
                     <button class="btn btn-primary"
                             @onclick="@(() => EditContract(contract.Id))">
                         Edit

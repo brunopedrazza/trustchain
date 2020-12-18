@@ -28,6 +28,9 @@
       <change beforePath="$PROJECT_DIR$/Pages/EditContract.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/EditContract.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pages/EditContract.razor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/EditContract.razor.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pages/Index.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Index.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Index.razor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Index.razor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/NewContract.razor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/NewContract.razor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Startup.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/Trustchain.Front.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net5.0/Trustchain.Front.Views.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/Trustchain.Front.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net5.0/Trustchain.Front.Views.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/Trustchain.Front.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net5.0/Trustchain.Front.dll" afterDir="false" />
@@ -68,13 +71,15 @@
         <option value="$PROJECT_DIR$/Shared/MainLayout.razor" />
         <option value="$PROJECT_DIR$/Data/Contract.cs" />
         <option value="$PROJECT_DIR$/Pages/NewContract.razor" />
-        <option value="$PROJECT_DIR$/Pages/NewContract.razor.cs" />
         <option value="$PROJECT_DIR$/Shared/NavMenu.razor" />
-        <option value="$PROJECT_DIR$/Pages/Index.razor.cs" />
         <option value="$PROJECT_DIR$/Clients/ContractClient.cs" />
+        <option value="$PROJECT_DIR$/Startup.cs" />
         <option value="$PROJECT_DIR$/Pages/EditContract.razor.cs" />
         <option value="$PROJECT_DIR$/Pages/EditContract.razor" />
         <option value="$PROJECT_DIR$/Pages/Index.razor" />
+        <option value="$PROJECT_DIR$/Services/AppState.cs" />
+        <option value="$PROJECT_DIR$/Pages/Index.razor.cs" />
+        <option value="$PROJECT_DIR$/Pages/NewContract.razor.cs" />
       </list>
     </option>
   </component>
@@ -138,7 +143,7 @@
       <option name="presentableId" value="Default" />
       <updated>1608259119667</updated>
       <workItem from="1608259129481" duration="3693000" />
-      <workItem from="1608266537399" duration="7504000" />
+      <workItem from="1608266537399" duration="9788000" />
     </task>
     <servers />
   </component>
@@ -264,24 +269,5 @@
     </state>
     <state x="383" y="194" width="672" height="678" key="search.everywhere.popup/0.0.1440.900/-2560.0.2560.1080@0.0.1440.900" timestamp="1608262463780" />
     <state x="383" y="194" width="672" height="678" key="search.everywhere.popup/0.25.1440.828/-2560.25.2560.1055@0.25.1440.828" timestamp="1608262743722" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Pages/EditContract.razor.cs</url>
-          <line>37</line>
-          <properties documentPath="$PROJECT_DIR$/Pages/EditContract.razor.cs" initialLine="36">
-            <startOffsets>
-              <option value="1077" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1078" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

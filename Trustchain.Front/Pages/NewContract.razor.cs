@@ -4,13 +4,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using Trustchain.Front.Data;
+using Trustchain.Front.Services;
 
 namespace Trustchain.Front.Pages
 {
     public partial class NewContract
     {
         [Inject] private NavigationManager Nav { get; set; }
-        
+        [Inject] private AppState App { get; set; }
+
         private EditContext EditContext { get; set; }
         private Contract Contract { get; set; }
 
@@ -26,9 +28,9 @@ namespace Trustchain.Front.Pages
             EditContext = new EditContext(Contract);
         }
 
-        private async Task AddContract()
+        private void AddContract()
         {
-            // Add contract
+            App.AddContract(Contract);
             Nav.NavigateTo("/");
         }
     }

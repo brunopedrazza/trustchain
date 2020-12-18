@@ -3,46 +3,41 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Trustchain.Front.Data;
+using Trustchain.Front.Services;
 
 namespace Trustchain.Front.Pages
 {
     public partial class EditContract
     {
+        [Inject] private AppState App { get; set; }
+        [Inject] private NavigationManager Nav { get; set; }
+        
         [Parameter] public string Id { get; set; }
         
         private Contract Contract { get; set; }
+        
 
-        protected override async Task OnInitializedAsync()
+        protected override void OnInitialized()
         {
-            Contract = await GetContract();
+            Contract = GetContract();
         }
 
-        private async Task<Contract> GetContract()
+        private Contract GetContract()
         {
-            var contract = new Contract
-            {
-                Id = Guid.NewGuid().ToString(),
-                Owner = "teste",
-                OwnerCompany = "owner company",
-                Hired = "hired",
-                HiredCompany = "hiredcompany",
-                Value = "3224",
-                ConclusionDate = "23/13/2020",
-                JobApproved = true,
-                JobDone = false
-            };
+            var contract = App.GetContractById(Id);
             return contract;
         }
         
-        private async Task SubmitEditContract(MouseEventArgs args)
+        private void SubmitEditContract(MouseEventArgs args)
         {
-            Console.WriteLine(args);
-            // Edit Contract
+            App.UpdateContract(Contract);
+            Nav.NavigateTo("/");
         }
 
-        private async Task DeleteContract()
+        private void DeleteContract()
         {
-            // Delete Contract
+            App.DeleteContract(Contract);
+            Nav.NavigateTo("/");
         }
     }
 }

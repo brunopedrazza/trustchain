@@ -5,40 +5,29 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Trustchain.Front.Data;
+using Trustchain.Front.Services;
 
 namespace Trustchain.Front.Pages
 {
     public partial class Index : ComponentBase
     {
         [Inject] private NavigationManager Nav { get; set; }
+        [Inject] private AppState App { get; set; }
         private List<Contract> Contracts { get; set; }
-
-        protected override async Task OnParametersSetAsync()
+        
+        protected override void OnInitialized()
         {
-            Contracts = await GetContracts();
+            App.OnChange += GetContracts;
         }
 
-        private async Task<List<Contract>> GetContracts()
+        protected override void OnParametersSet()
         {
-            var contracts = new List<Contract>();
-            for (var i = 0; i < 300; i++)
-            {
-                var contract = new Contract
-                {
-                    Id = Guid.NewGuid().ToString(),
-                    Owner = "teste",
-                    OwnerCompany = "owner company",
-                    Hired = "hired",
-                    HiredCompany = "hiredcompany",
-                    Value = "3224",
-                    ConclusionDate = "23/13/2020",
-                    JobApproved = true,
-                    JobDone = false
-                };
-                contracts.Add(contract);
-            }
+            GetContracts();
+        }
 
-            return contracts;
+        private void GetContracts()
+        {
+            Contracts = App.Contracts;
         }
 
         private void EditContract(string id)
